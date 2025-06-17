@@ -18,7 +18,7 @@ PS_UTF8 = powershell -Command "[Console]::OutputEncoding=[Text.Encoding]::UTF8;
 
 test-emoji:
 	
-	@echo -e "$(GREEN) Building version $(BUILD_VERSION)$(NC)"
+	@echo -e "🔨 $(GREEN) Building version $(BUILD_VERSION)$(NC)"
 	# your build commands here
 
 deploy-web:
