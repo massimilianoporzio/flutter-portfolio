@@ -5,25 +5,24 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Chrome",
+      "name": "Flutter",
+      "type": "dart",
       "request": "launch",
-      "type": "chrome",
-      "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}"
+      "program": "lib/main.dart"
     },
     {
-      "name": "flutter-portfolio",
+      "name": "portfolio",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "flutter-portfolio (profile mode)",
+      "name": "portfolio (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
     },
     {
-      "name": "flutter-portfolio (release mode)",
+      "name": "portfolio (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"
