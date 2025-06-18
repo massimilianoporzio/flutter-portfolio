@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/extensions.dart';
+import 'package:portfolio/conf/app_menu_list.dart';
 
 import 'package:portfolio/theme/app_sizes.dart';
+import 'package:portfolio/theme/app_text_styles.dart';
 import 'package:portfolio/widgets/appbar/app_bar_drawer_icon.dart';
 
 class MyAppBar extends StatelessWidget {
@@ -12,7 +14,7 @@ class MyAppBar extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 250),
       alignment: Alignment.center,
-      color: Colors.red,
+      color: context.theme.appBarTheme.backgroundColor,
       height: context.insets.appBarHeight,
       padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
       child: ConstrainedBox(
@@ -21,7 +23,7 @@ class MyAppBar extends StatelessWidget {
           children: [
             AppLogo(),
             Spacer(),
-            if (context.isDesktop) AppMenus(),
+            if (context.isDesktop) LargeMenu(),
             Spacer(),
             LanguageSelector(),
             ThemeToggle(),
@@ -59,18 +61,49 @@ class LanguageSelector extends StatelessWidget {
   }
 }
 
-class AppMenus extends StatelessWidget {
-  const AppMenus({super.key});
+class LargeMenu extends StatelessWidget {
+  const LargeMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
-        Text(context.messages.home),
-        Text(context.messages.courses),
-        Text(context.messages.blog),
-        Text(context.messages.aboutMe),
-      ],
+      children: AppMenuList.getItems(context).map((item) {
+        return LargeAppBarMenuItem(
+          label: item.label,
+          isSelected: true,
+        );
+      }).toList(),
+    );
+  }
+}
+
+class LargeAppBarMenuItem extends StatelessWidget {
+  final String label;
+  final bool isSelected;
+  final VoidCallback? onTap;
+  const LargeAppBarMenuItem({
+    super.key,
+    required this.label,
+    required this.isSelected,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap ?? () {},
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: Insets.md,
+          vertical: Insets.xs,
+        ),
+        child: Text(
+          label,
+          style: SmallTextStyles().bodyLgMedium.copyWith(
+            color: isSelected ? context.theme.colorScheme.onSurface : null,
+          ),
+        ),
+      ),
     );
   }
 }
