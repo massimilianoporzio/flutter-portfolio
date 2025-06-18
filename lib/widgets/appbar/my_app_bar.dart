@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/extensions.dart';
-import 'package:portfolio/conf/app_menu_list.dart';
-
 import 'package:portfolio/theme/app_sizes.dart';
-import 'package:portfolio/theme/app_text_styles.dart';
 import 'package:portfolio/widgets/appbar/app_bar_drawer_icon.dart';
+import 'package:portfolio/widgets/appbar/app_bar_language_selector.dart';
+import 'package:portfolio/widgets/appbar/app_bar_large_menu.dart';
+import 'package:portfolio/widgets/appbar/app_bar_logo.dart';
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({super.key});
@@ -41,78 +41,5 @@ class ThemeToggle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Switch(value: false, onChanged: (value) {});
-  }
-}
-
-class LanguageSelector extends StatelessWidget {
-  const LanguageSelector({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return PopupMenuButton(
-      itemBuilder: (context) {
-        return [
-          const PopupMenuItem(value: 'en', child: Text('English')),
-          const PopupMenuItem(value: 'it', child: Text('Italiano')),
-          // const PopupMenuItem(value: 'es', child: Text('Español')),
-        ];
-      },
-    );
-  }
-}
-
-class LargeMenu extends StatelessWidget {
-  const LargeMenu({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: AppMenuList.getItems(context).map((item) {
-        return LargeAppBarMenuItem(
-          label: item.label,
-          isSelected: true,
-        );
-      }).toList(),
-    );
-  }
-}
-
-class LargeAppBarMenuItem extends StatelessWidget {
-  final String label;
-  final bool isSelected;
-  final VoidCallback? onTap;
-  const LargeAppBarMenuItem({
-    super.key,
-    required this.label,
-    required this.isSelected,
-    this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap ?? () {},
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: Insets.md,
-          vertical: Insets.xs,
-        ),
-        child: Text(
-          label,
-          style: SmallTextStyles().bodyLgMedium.copyWith(
-            color: isSelected ? context.theme.colorScheme.onSurface : null,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class AppLogo extends StatelessWidget {
-  const AppLogo({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(context.messages.title, style: context.textStyles.titleLgBold);
   }
 }
