@@ -1,0 +1,28 @@
+{
+  "@@locale": "it",
+  "home": "Principale",
+  "@home": {
+    "description": "Title for the home screen",
+    "type": "text"
+  },
+  "title": "Il mio Portfolio",
+  "@title": {
+    "description": "Title for the app",
+    "type": "text"
+  },
+  "courses": "Corsi",
+  "@courses": {
+    "description": "Title for the courses page",
+    "type": "text"
+  },
+  "blog": "Blog",
+  "@blog": {
+    "description": "Title for the blog page",
+    "type": "text"
+  },
+  "aboutMe": "A proposito di Me",
+  "@aboutMe": {
+    "description": "Title for the about me page",
+    "type": "text"
+  }
+}

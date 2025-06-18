@@ -1,0 +1,28 @@
+{
+  "@@locale": "en",
+  "home": "Home",
+  "@home": {
+    "description": "Title for the home screen",
+    "type": "text"
+  },
+  "title": "Portfolio",
+  "@title": {
+    "description": "Title for the app",
+    "type": "text"
+  },
+  "courses": "Courses",
+  "@courses": {
+    "description": "Title for the courses page",
+    "type": "text"
+  },
+  "blog": "Blog",
+  "@blog": {
+    "description": "Title for the blog page",
+    "type": "text"
+  },
+  "aboutMe": "About Me",
+  "@aboutMe": {
+    "description": "Title for the about me page",
+    "type": "text"
+  }
+}

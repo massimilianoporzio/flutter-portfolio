@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/common/extensions.dart';
+import 'package:portfolio/l10n/app_localizations.dart';
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({super.key});
@@ -37,7 +39,7 @@ class LanguageSelector extends StatelessWidget {
         return [
           const PopupMenuItem(value: 'en', child: Text('English')),
           const PopupMenuItem(value: 'it', child: Text('Italiano')),
-          const PopupMenuItem(value: 'es', child: Text('Español')),
+          // const PopupMenuItem(value: 'es', child: Text('Español')),
         ];
       },
     );
@@ -51,10 +53,10 @@ class AppMenus extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text('Home'),
-        const Text('Courses'),
-        const Text('Blog'),
-        const Text('About Me'),
+        Text(context.messages.home),
+        Text(context.messages.courses),
+        Text(context.messages.blog),
+        Text(context.messages.aboutMe),
       ],
     );
   }
@@ -65,6 +67,6 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Portofolio Logo');
+    return Text(context.messages.title, style: context.textStyles.titleLgBold);
   }
 }
