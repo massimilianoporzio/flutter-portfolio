@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:portfolio/common/extensions.dart';
 import 'package:portfolio/conf/app_icons.dart';
+import 'package:portfolio/common/providers/providers.dart';
 import 'package:portfolio/widgets/seo_text.dart';
 
-class LanguageSelector extends StatelessWidget {
+class LanguageSelector extends ConsumerWidget {
   const LanguageSelector({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(languageProvider);
     return PopupMenuButton(
+      initialValue: locale.valueOrNull ?? 'en',
+      onSelected: (value) {
+        if (value == 'en') {
+          ref.read(languageProvider.notifier).changeLocale('en');
+        } else if (value == 'it') {
+          ref.read(languageProvider.notifier).changeLocale('it');
+        }
+      },
       itemBuilder: (context) {
         return [
           const PopupMenuItem(
@@ -37,7 +48,7 @@ class LanguageSelector extends StatelessWidget {
           ),
           const Gap(4),
           SEOText(
-            Localizations.localeOf(context).languageCode == 'en' ? 'En' : 'It',
+            locale.value == 'en' ? 'En' : 'It',
           ),
         ],
       ),
