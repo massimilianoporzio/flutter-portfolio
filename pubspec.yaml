@@ -15,6 +15,7 @@ dependencies:
   flutter_svg: ^2.2.0
   gap: ^3.0.1
   intl: any
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   custom_lint: ^0.7.5
