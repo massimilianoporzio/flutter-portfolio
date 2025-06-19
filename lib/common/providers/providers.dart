@@ -1,1 +1,1 @@
-export '../../features/language/language_provider.dart';
+export '../../features/language/app_locale_controller.dart';

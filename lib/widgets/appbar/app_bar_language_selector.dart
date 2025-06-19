@@ -12,14 +12,14 @@ class LanguageSelector extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final locale = ref.watch(languageProvider);
+    final locale = ref.watch(appLocaleControllerProvider);
     return PopupMenuButton(
       initialValue: locale.valueOrNull ?? 'en',
       onSelected: (value) {
         if (value == 'en') {
-          ref.read(languageProvider.notifier).changeLocale('en');
+          ref.read(appLocaleControllerProvider.notifier).changeLocale('en');
         } else if (value == 'it') {
-          ref.read(languageProvider.notifier).changeLocale('it');
+          ref.read(appLocaleControllerProvider.notifier).changeLocale('it');
         }
       },
       itemBuilder: (context) {

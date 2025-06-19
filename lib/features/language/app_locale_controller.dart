@@ -1,9 +1,9 @@
-import 'dart:async';
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/shared/app_sahred_prefs.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part 'app_locale_controller.g.dart';
 
-class AppLocaleController extends AsyncNotifier<String> {
+@riverpod
+class AppLocaleController extends _$AppLocaleController {
   @override
   FutureOr<String> build() {
     return AppSahredPrefs.getAppLocale();

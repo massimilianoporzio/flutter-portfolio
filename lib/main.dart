@@ -16,7 +16,7 @@ class MainApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     //ascolto in TUTTA la app il cambio di lingua
-    final locale = ref.watch(languageProvider);
+    final locale = ref.watch(appLocaleControllerProvider);
     return MaterialApp(
       onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
       localizationsDelegates: const [
