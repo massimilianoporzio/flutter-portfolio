@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/extensions.dart';
-import 'package:portfolio/conf/app_menu_list.dart';
-import 'package:portfolio/theme/app_sizes.dart';
-import 'package:portfolio/theme/app_text_styles.dart';
+import '../../common/extensions.dart';
+import '../../conf/app_menu_list.dart';
+import '../../theme/app_sizes.dart';
+import '../../theme/app_text_styles.dart';
 
 class LargeMenu extends StatelessWidget {
   const LargeMenu({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/extensions.dart';
-import 'package:portfolio/routes/app_routes.dart';
+import '../common/extensions.dart';
+import '../routes/app_routes.dart';
 
 class AppeMenu {
   final String label;

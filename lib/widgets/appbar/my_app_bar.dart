@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:portfolio/common/extensions.dart';
-import 'package:portfolio/theme/app_sizes.dart';
-import 'package:portfolio/widgets/appbar/app_bar_drawer_icon.dart';
-import 'package:portfolio/widgets/appbar/app_bar_language_selector.dart';
-import 'package:portfolio/widgets/appbar/app_bar_large_menu.dart';
-import 'package:portfolio/widgets/appbar/app_bar_logo.dart';
-import 'package:portfolio/widgets/appbar/app_bar_theme_switch.dart';
+
+import '../../common/extensions.dart';
+import '../../theme/app_sizes.dart';
+import 'app_bar_drawer_icon.dart';
+import 'app_bar_language_selector.dart';
+import 'app_bar_large_menu.dart';
+import 'app_bar_logo.dart';
+import 'app_bar_theme_switch.dart';
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({super.key});

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+
 import '../../common/extensions.dart';
 import '../../conf/app_icons.dart';
-
 import '../../features/lang/presentation/cubit/lang_cubit.dart';
 import '../seo_text.dart';
 

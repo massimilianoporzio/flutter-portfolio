@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:portfolio/features/theme/presentation/cubit/theme_cubit.dart';
+import 'features/theme/presentation/cubit/theme_cubit.dart';
 import 'features/lang/presentation/cubit/lang_cubit.dart';
 import 'l10n/app_localizations.dart';
 import 'pages/home_page.dart';

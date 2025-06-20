@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/common/extensions.dart';
+import '../../common/extensions.dart';
 
 class AppLogo extends StatelessWidget {
   const AppLogo({super.key});
