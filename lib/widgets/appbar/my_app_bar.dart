@@ -6,6 +6,7 @@ import 'package:portfolio/widgets/appbar/app_bar_drawer_icon.dart';
 import 'package:portfolio/widgets/appbar/app_bar_language_selector.dart';
 import 'package:portfolio/widgets/appbar/app_bar_large_menu.dart';
 import 'package:portfolio/widgets/appbar/app_bar_logo.dart';
+import 'package:portfolio/widgets/appbar/app_bar_theme_switch.dart';
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({super.key});
@@ -35,14 +36,5 @@ class MyAppBar extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class ThemeToggle extends StatelessWidget {
-  const ThemeToggle({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Switch(value: false, onChanged: (value) {});
   }
 }

@@ -4,6 +4,7 @@ class AppColors {
   static const primaryColor = Color(0xFF561895);
   static const darkBackgroundColor = Color(0xff110D12);
   static const gray = MaterialColor(100, {
+    50: Color(0xffF5F5F5),
     100: Color(0xffFBFBFB),
     200: Color(0xFFE2e2e2),
     300: Color(0xFFc9c9c9),

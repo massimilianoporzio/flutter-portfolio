@@ -17,7 +17,6 @@ class AppTheme {
     required WidgetStateProperty<TextStyle> elevatedButtonTextStyle,
     required WidgetStateProperty<TextStyle> outlinedButtonTextStyle,
   }) {
-    print("CIAO");
     return ThemeData(
       colorScheme: colorScheme,
       useMaterial3: true,
@@ -54,30 +53,34 @@ class AppTheme {
       surface: AppColors.gray[800]!,
       outline: AppColors.gray[700]!,
       outlineVariant: AppColors.gray[600]!,
-      onBackground: AppColors.gray[100]!,
-      onSurface: AppColors.gray[100]!,
+      onBackground: AppColors.gray[50]!,
+      onSurface: AppColors.gray[50]!,
       onSurfaceVariant: AppColors.gray[200]!,
       tertiary: AppColors.gray[300]!,
     ),
     scaffoldBackgroundColor: AppColors.darkBackgroundColor,
-    appBarTheme: AppBarTheme(backgroundColor: AppColors.primaryColor),
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.gray[900]!.withValues(alpha: 0.3),
+    ),
     elevatedButtonTextStyle: _darkElevatedButtonTextStyle,
     outlinedButtonTextStyle: _darkOutlinedButtonTextStyle,
   );
   ThemeData get light => _getThemeData(
     colorScheme: ColorScheme.light(
       primary: AppColors.primaryColor,
-      //background: AppColors.gray[100]!,
+      background: AppColors.gray[100]!,
       surface: AppColors.gray[200]!,
       outline: AppColors.gray[300]!,
       outlineVariant: AppColors.gray[400]!,
-      //onBackground: AppColors.gray[800]!,
+      onBackground: AppColors.gray[800]!,
       onSurface: AppColors.gray[700]!,
       onSurfaceVariant: AppColors.gray[600]!,
       tertiary: AppColors.gray[900]!,
     ),
     scaffoldBackgroundColor: AppColors.gray[100]!,
-    appBarTheme: AppBarTheme(backgroundColor: AppColors.gray[900]),
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.gray[100]!.withValues(alpha: 0.3),
+    ),
     elevatedButtonTextStyle: _lightElevatedButtonTextStyle,
     outlinedButtonTextStyle: _lightOutlinedButtonTextStyle,
   );
