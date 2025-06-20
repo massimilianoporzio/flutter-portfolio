@@ -12,13 +12,13 @@ class ThemeToggle extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeMode = context.watch<ThemeCubit>().currentTheme;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: FlutterSwitch(
         value: themeMode == ThemeMode.dark,
-        width: 85,
-        height: 40.0,
-        toggleSize: 30.0,
 
+        //width: 65,
+        //height: 35.0,
+        //toggleSize: 25.0,
         activeToggleColor: Color(0xFF6E40C9),
         inactiveToggleColor: AppColors.gray[800]!,
         activeSwitchBorder: Border.all(

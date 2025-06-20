@@ -20,17 +20,20 @@ class MyAppBar extends StatelessWidget {
       height: context.insets.appBarHeight,
       padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: Insets.maxWidth),
+        constraints: BoxConstraints(
+          maxWidth: Insets.maxWidth,
+        ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             AppLogo(),
             Spacer(),
             if (context.isDesktop) LargeMenu(),
             if (context.isDesktop) Spacer(),
             LanguageSelector(),
-            if (context.isDesktop) Gap(8),
+            if (context.isDesktop) Spacer(),
             ThemeToggle(),
+
             if (!context.isDesktop) AppBarDrawerIcon(),
           ],
         ),
