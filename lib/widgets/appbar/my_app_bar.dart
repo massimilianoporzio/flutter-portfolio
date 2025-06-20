@@ -27,9 +27,9 @@ class MyAppBar extends StatelessWidget {
             Spacer(),
             if (context.isDesktop) LargeMenu(),
             if (context.isDesktop) Spacer(),
-            Expanded(child: LanguageSelector()),
+            LanguageSelector(),
             if (context.isDesktop) Gap(8),
-            Expanded(child: ThemeToggle()),
+            ThemeToggle(),
             if (!context.isDesktop) AppBarDrawerIcon(),
           ],
         ),
@@ -43,6 +43,6 @@ class ThemeToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(child: Switch(value: false, onChanged: (value) {}));
+    return Switch(value: false, onChanged: (value) {});
   }
 }

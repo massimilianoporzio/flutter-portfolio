@@ -36,12 +36,12 @@ flutter:
     # - assets/images/
     - assets/icons/
   fonts:
-    - family: Poppins
+    - family: Monserrat
       fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
-        - asset: assets/fonts/Poppins-Medium.ttf
+        - asset: assets/fonts/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/Montserrat-Bold.ttf
           weight: 700
     - family: PlayFair
       fonts:

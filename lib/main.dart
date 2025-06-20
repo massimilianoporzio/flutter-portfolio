@@ -28,8 +28,15 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext contextf) {
     //ascolto in TUTTA la app il cambio di lingua
 
-    return BlocProvider(
-      create: (context) => LangCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LangCubit(),
+        ),
+        // BlocProvider(
+        //   create: (context) => SubjectBloc(),
+        // ),
+      ],
       child: BlocBuilder<LangCubit, LangState>(
         builder: (context, state) {
           return MaterialApp(
@@ -40,12 +47,17 @@ class MainApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            locale: Locale(context.read<LangCubit>().state.locale),
+            locale: Locale(state.locale),
             supportedLocales: const [
               Locale('en'), // English
               Locale('it'), // Italian
             ],
-            darkTheme: AppTheme.dark,
+            darkTheme: state.locale == 'en'
+                ? AppTheme(fontFamily: 'PlayFair').dark
+                : AppTheme(fontFamily: 'PlayFair').dark,
+            theme: state.locale == 'en'
+                ? AppTheme(fontFamily: 'PlayFair').light
+                : AppTheme(fontFamily: 'PlayFair').light,
             themeMode: ThemeMode.dark,
             home: HomePage(),
           );

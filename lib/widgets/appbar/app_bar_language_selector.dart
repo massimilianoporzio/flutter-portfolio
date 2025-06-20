@@ -40,20 +40,18 @@ class LanguageSelector extends StatelessWidget {
               ),
             ];
           },
-          child: Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.language,
-                  color: context.colorScheme.onSurface,
-                ),
-                const Gap(2),
-                SEOText(
-                  state.locale == 'en' ? 'En' : 'It',
-                ),
-              ],
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.language,
+                color: context.colorScheme.onSurface,
+              ),
+              const Gap(2),
+              SEOText(
+                state.locale == 'en' ? 'En' : 'It',
+              ),
+            ],
           ),
         );
       },
