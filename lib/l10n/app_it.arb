@@ -20,7 +20,7 @@
     "description": "Title for the blog page",
     "type": "text"
   },
-  "aboutMe": "A proposito di Me",
+  "aboutMe": "Su di Me",
   "@aboutMe": {
     "description": "Title for the about me page",
     "type": "text"

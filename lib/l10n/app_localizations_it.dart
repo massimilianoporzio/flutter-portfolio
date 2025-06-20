@@ -21,5 +21,5 @@ class AppLocalizationsIt extends AppLocalizations {
   String get blog => 'Blog';
 
   @override
-  String get aboutMe => 'A proposito di Me';
+  String get aboutMe => 'Su di Me';
 }

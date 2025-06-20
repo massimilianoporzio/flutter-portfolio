@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:portfolio/common/extensions.dart';
 import 'package:portfolio/theme/app_sizes.dart';
 import 'package:portfolio/widgets/appbar/app_bar_drawer_icon.dart';
@@ -20,13 +21,15 @@ class MyAppBar extends StatelessWidget {
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: Insets.maxWidth),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             AppLogo(),
             Spacer(),
             if (context.isDesktop) LargeMenu(),
-            Spacer(),
-            LanguageSelector(),
-            ThemeToggle(),
+            if (context.isDesktop) Spacer(),
+            Expanded(child: LanguageSelector()),
+            if (context.isDesktop) Gap(8),
+            Expanded(child: ThemeToggle()),
             if (!context.isDesktop) AppBarDrawerIcon(),
           ],
         ),
@@ -40,6 +43,6 @@ class ThemeToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Switch(value: false, onChanged: (value) {});
+    return SizedBox(child: Switch(value: false, onChanged: (value) {}));
   }
 }
