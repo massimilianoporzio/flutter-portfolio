@@ -4,6 +4,7 @@ class Insets {
   static double get sm => 8.0;
   static double get md => 12.0;
   static double get lg => 16.0;
+  static double get xl => 24.0;
 }
 
 abstract class AppSizes {
