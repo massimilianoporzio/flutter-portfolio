@@ -31,7 +31,7 @@ deploy-web:
 	flutter pub get
 	
 	@echo "Building Flutter web application..."
-	flutter build web --release --base-href $(BASE_HREF) 
+	flutter build web --release --base-href $(BASE_HREF) --wasm
 	
 	@echo "Deploying to GitHub Pages..."
 	cd build/web && \
