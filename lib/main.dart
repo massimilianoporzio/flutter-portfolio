@@ -1,38 +1,56 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:portfolio/common/providers/providers.dart';
-import 'package:portfolio/l10n/app_localizations.dart';
-import 'package:portfolio/pages/home_page.dart';
-import 'package:portfolio/theme/app_theme.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
+import 'features/lang/presentation/cubit/lang_cubit.dart';
+import 'l10n/app_localizations.dart';
+import 'pages/home_page.dart';
+import 'theme/app_theme.dart';
 
-void main() {
-  runApp(ProviderScope(child: const MainApp()));
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorageDirectory.web
+        : HydratedStorageDirectory(
+            (await getApplicationDocumentsDirectory()).path,
+          ),
+  );
+  runApp(MainApp());
 }
 
-class MainApp extends ConsumerWidget {
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext contextf) {
     //ascolto in TUTTA la app il cambio di lingua
-    final locale = ref.watch(appLocaleControllerProvider);
-    return MaterialApp(
-      onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      locale: Locale(locale.value ?? 'en'), // Default locale inglese
-      supportedLocales: const [
-        Locale('en'), // English
-        Locale('it'), // Italian
-      ],
-      darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.dark,
-      home: HomePage(),
+
+    return BlocProvider(
+      create: (context) => LangCubit(),
+      child: BlocBuilder<LangCubit, LangState>(
+        builder: (context, state) {
+          return MaterialApp(
+            onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            locale: Locale(context.read<LangCubit>().state.locale),
+            supportedLocales: const [
+              Locale('en'), // English
+              Locale('it'), // Italian
+            ],
+            darkTheme: AppTheme.dark,
+            themeMode: ThemeMode.dark,
+            home: HomePage(),
+          );
+        },
+      ),
     );
   }
 }

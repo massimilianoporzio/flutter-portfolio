@@ -1,57 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:portfolio/common/extensions.dart';
-import 'package:portfolio/conf/app_icons.dart';
-import 'package:portfolio/common/providers/providers.dart';
-import 'package:portfolio/widgets/seo_text.dart';
+import '../../common/extensions.dart';
+import '../../conf/app_icons.dart';
 
-class LanguageSelector extends ConsumerWidget {
+import '../../features/lang/presentation/cubit/lang_cubit.dart';
+import '../seo_text.dart';
+
+class LanguageSelector extends StatelessWidget {
   const LanguageSelector({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final locale = ref.watch(appLocaleControllerProvider);
-    return PopupMenuButton(
-      initialValue: locale.valueOrNull ?? 'en',
-      onSelected: (value) {
-        if (value == 'en') {
-          ref.read(appLocaleControllerProvider.notifier).changeLocale('en');
-        } else if (value == 'it') {
-          ref.read(appLocaleControllerProvider.notifier).changeLocale('it');
-        }
+  Widget build(BuildContext contextf) {
+    return BlocBuilder<LangCubit, LangState>(
+      builder: (context, state) {
+        return PopupMenuButton(
+          initialValue: state.locale,
+          onSelected: (value) {
+            // Change the locale in the LangCubit
+            context.read<LangCubit>().changeLocale(value);
+          },
+          itemBuilder: (context) {
+            return [
+              const PopupMenuItem(
+                value: 'en',
+                child: PopupLanguageItem(
+                  language: 'English',
+                  icon: AppIcons.uk,
+                ),
+              ),
+              const PopupMenuItem(
+                value: 'it',
+                child: PopupLanguageItem(
+                  language: 'Italiano',
+                  icon: AppIcons.it,
+                ),
+              ),
+            ];
+          },
+          child: Row(
+            children: [
+              Icon(
+                Icons.language,
+                color: context.colorScheme.onSurface,
+              ),
+              const Gap(4),
+              SEOText(
+                state.locale == 'en' ? 'En' : 'It',
+              ),
+            ],
+          ),
+        );
       },
-      itemBuilder: (context) {
-        return [
-          const PopupMenuItem(
-            value: 'en',
-            child: PopupLanguageItem(
-              language: 'English',
-              icon: AppIcons.uk,
-            ),
-          ),
-          const PopupMenuItem(
-            value: 'it',
-            child: PopupLanguageItem(
-              language: 'Italiano',
-              icon: AppIcons.it,
-            ),
-          ),
-        ];
-      },
-      child: Row(
-        children: [
-          Icon(
-            Icons.language,
-            color: context.colorScheme.onSurface,
-          ),
-          const Gap(4),
-          SEOText(
-            locale.value == 'en' ? 'En' : 'It',
-          ),
-        ],
-      ),
     );
   }
 }
