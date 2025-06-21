@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'features/theme/presentation/cubit/theme_cubit.dart';
@@ -19,7 +20,7 @@ Future<void> main() async {
             (await getApplicationDocumentsDirectory()).path,
           ),
   );
-  runApp(MainApp());
+  runApp(ProviderScope(child: MainApp())); //uso anche riverpod
 }
 
 class MainApp extends StatelessWidget {

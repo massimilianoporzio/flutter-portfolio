@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/appbar/drawer_menu.dart';
 
 import '../../common/extensions.dart';
 import '../../theme/app_sizes.dart';
@@ -13,31 +14,36 @@ class MyAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
-      alignment: Alignment.center,
-      color: context.theme.appBarTheme.backgroundColor,
-      height: context.insets.appBarHeight,
-      padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-          maxWidth: Insets.maxWidth,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AppLogo(),
-            Spacer(),
-            if (context.isDesktop) LargeMenu(),
-            if (context.isDesktop) Spacer(),
-            LanguageSelector(),
-            if (context.isDesktop) Spacer(),
-            ThemeToggle(),
+    return Column(
+      children: [
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          alignment: Alignment.center,
+          color: context.theme.appBarTheme.backgroundColor,
+          height: context.insets.appBarHeight,
+          padding: EdgeInsets.symmetric(horizontal: context.insets.padding),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: Insets.maxWidth,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLogo(),
+                Spacer(),
+                if (context.isDesktop) LargeMenu(),
+                if (context.isDesktop) Spacer(),
+                LanguageSelector(),
+                if (context.isDesktop) Spacer(),
+                ThemeToggle(),
 
-            if (!context.isDesktop) AppBarDrawerIcon(),
-          ],
+                if (!context.isDesktop) AppBarDrawerIcon(),
+              ],
+            ),
+          ),
         ),
-      ),
+        if (!context.isDesktop) DrawerMenu(),
+      ],
     );
   }
 }
