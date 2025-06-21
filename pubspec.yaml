@@ -22,7 +22,10 @@ dependencies:
   intl: any
   path_provider: ^2.1.5
   riverpod_annotation: ^2.6.1
+  seo: ^0.0.10
+  seo_renderer: ^0.6.0
   shared_preferences: ^2.5.3
+  url_strategy: ^0.3.0
 
 dev_dependencies:
   build_runner: ^2.5.3

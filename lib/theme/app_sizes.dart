@@ -5,6 +5,7 @@ class Insets {
   static double get md => 12.0;
   static double get lg => 16.0;
   static double get xl => 24.0;
+  static double get xxl => 40.0;
   static double get xxxl => 80.0;
 }
 
