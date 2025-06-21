@@ -8,7 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'features/theme/presentation/cubit/theme_cubit.dart';
 import 'features/lang/presentation/cubit/lang_cubit.dart';
 import 'l10n/app_localizations.dart';
-import 'pages/home_page.dart';
+import 'features/home/presentation/pages/home_page.dart';
 import 'theme/app_theme.dart';
 
 Future<void> main() async {
